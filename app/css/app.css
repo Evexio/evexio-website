@@ -198,7 +198,7 @@ p a {
     padding-right: 40px;
 }
 #contents .features {
-	width: 810px;
+	width: 790px;
 	margin: 0 auto;
 }
 .features > div {
@@ -385,7 +385,7 @@ p a {
 	padding-left: 10px;
 }
 #footer > div {
-	width: 920px;
+	width: 100%;
 }
 #connect {
 	float: right;
@@ -460,6 +460,12 @@ p a {
     #contents {
         width: inherit;
     }
+    #about {
+        width: 100%;
+    }
+    #contents .features {
+        width: inherit;
+    }
 }
 
 @media only screen and (max-width: 700px) {
@@ -467,5 +473,12 @@ p a {
     #tagline > div {
         float: none;
         width: inherit;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    
+    .features > div img {
+        display: none;
     }
 }
