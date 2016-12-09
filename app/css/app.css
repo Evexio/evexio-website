@@ -167,7 +167,7 @@ a {
     padding: 0 80px;
 }
 .news_contents {
-    width: auto !important;
+    width: 880px !important;
 }
 h1 {
 	color: #3e3e3e;
@@ -246,7 +246,6 @@ p a {
 }
 .more:hover, .message input[type='submit']:hover {
     background-color: #399DDA;
-	color: #000;
 }
 /** main **/
 .main {
@@ -291,6 +290,13 @@ p a {
 .news li > p span, .post > span {
 	display: block;
 	text-align: right;
+    padding-top: 5px;
+}
+.post > span {
+    padding-bottom: 20px;
+}
+.single_post {
+    padding-top: 20px !important;
 }
 .posts {
 	border-top: 1px solid #d5d5d5;
@@ -313,11 +319,12 @@ p a {
 	text-decoration: none;
 }
 .post {
-	width: 785px;
+	width: 100%;
 	margin: 0 auto;
 }
 .post h1 {
 	padding-top: 12px;
+    font-weight: bold;
 }
 #about {
 	width: 740px;
@@ -424,6 +431,21 @@ p a {
 /*-------------------------------- MEDIA QUERIES ------------------------*/
 
 /* Tablet Portrait size to standard 960 (devices and browsers) */
+
+@media only screen and (max-width: 1040px) {
+    .news_contents {
+        width: auto !important;
+    }
+    .sidebar {
+        display: none;
+    }
+    .main {
+        background: none;
+        float: none;
+        width: 100%;
+    }
+}
+
 @media only screen and (max-width: 880px) {
     
     #navigation {
@@ -480,5 +502,35 @@ p a {
     
     .features > div img {
         display: none;
+    }
+    .post h1 {
+        font-size: 24px;
+    }
+    .date {
+        display: none;
+    }
+    .news li {
+        padding: 0px;
+        padding-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 455px) {
+    
+    .post h1 {
+        font-size: 18px;
+    }
+    .news h2 {
+        font-size: 18px;
+    }
+    .date {
+        display: none;
+    }
+    .news li {
+        padding: 0px;
+        padding-top: 20px;
+    }
+    .news p {
+        font-size: 12px;
     }
 }
