@@ -23,6 +23,7 @@ body {
 	background-color: #fff;
 	font-family: 'OpenSans';
 	margin: 0;
+    overflow-x: hidden;
 }
 img {
 	border: 0;
@@ -602,5 +603,17 @@ p a {
     }
     .news p {
         font-size: 12px;
+    }
+    #adbox > div {
+        padding-left: 20px;
+    }
+    .padded {
+        padding-left: 55px;
+    }
+    #adbox h1 {
+        padding-left: 55px;
+    }
+    #adbox h2 {
+        padding-left: 55px;
     }
 }
