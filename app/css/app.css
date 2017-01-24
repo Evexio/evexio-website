@@ -159,6 +159,76 @@ a {
 	display: block;
 	width: 256px;
 }
+/*------------------------------ SLIDE OUT MENU ------------------------------*/
+.slide-menu {
+    position: fixed;
+    z-index: 200;
+    background-color: #399DDA;
+    transition: transform 0.3s;
+}
+.menu-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.mask {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 0.3s, width 0s 0.3s, height 0s 0.3s;
+}
+.mask.is-active {
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+.slide-menu-right {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+}
+@media all and (min-width: 320px) {
+    .slide-menu-right {
+        width: 300px;
+        transform: translateX(300px);
+    }
+}
+.slide-menu-right .menu-item {
+    display: block;
+    text-align: center;
+    border-top: solid 1px #b5dbe9;
+}
+.slide-menu-right .menu-item:first-child {
+    border-top: none;
+}
+.slide-menu-right .menu-item:last-child {
+    border-bottom: none;
+}
+.slide-menu-right .menu-link {
+    display: block;
+    padding: 12px 24px;
+    color: #fff;
+}
+.slide-menu-right.is-active {
+    transform: translateX(0);
+}
+body.has-active-menu {
+  overflow: hidden;
+}
+.slide-menu-items {
+    padding: 0;
+    list-style-type: none;
+}
 /*------------------------------ CONTENTS ------------------------------*/
 #contents {
 	min-height: 510px;

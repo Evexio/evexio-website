@@ -16,9 +16,28 @@
 
 <body>
     <div id="header" style="transition: max-height 284ms; position: relative">
-        <div id="hamburger">
-            <a href="javascript:void(0);" onclick="openMenu()" title="Menu">☰</a>
+        <div id="hamburger" ng-click="showMenu($event)">
+            <a href="javascript:void(0);" title="Menu">☰</a>
         </div>
+        <nav id="slide-menu-right" class="slide-menu slide-menu-right">
+            <ul class="slide-menu-items">
+                <li class="menu-item" ng-class="{ active: isActive('/home') }">
+                    <a href="#!/home" class="menu-link">Home</a>
+                </li>
+                <li class="menu-item" ng-class="{ active: isActive('/work') }">
+                    <a href="#!/work" class="menu-link">What We Do</a>
+                </li>
+                <li class="menu-item" ng-class="{ active: isActive('/about') }">
+                    <a href="#!/about" class="menu-link">Team</a>
+                </li>
+                <li class="menu-item" ng-class="{ active: isActive('/blog') || isActive('/post') }">
+                    <a href="#!/blog" class="menu-link">Blog</a>
+                </li>
+                <li class="menu-item" ng-class="{ active: isActive('/contact') }">
+                    <a href="#!/contact" class="menu-link">Contact</a>
+                </li>
+            </ul>
+        </nav>
         <div class="logo">
             <a href="#!/home"><img src="images/logo.png"></a>
         </div>
@@ -42,6 +61,8 @@
     </div>
 
   <div ng-view></div>
+  
+  <div id="mask" class="mask"></div>
 
 
   <!-- In production use:
