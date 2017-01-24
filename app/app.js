@@ -13,13 +13,42 @@ angular.module('evexio', [
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/src/home'});
-}])
-.controller('EvexioCtrl', ['$scope', '$location', function($scope, $location) {
+  $routeProvider.otherwise({redirectTo: '/home'});
+}]).
+run(function($rootScope) {
+  document.addEventListener("click", function(e) {
+      $rootScope.$broadcast("documentClicked", e.target);
+  });
+})
+.controller('EvexioCtrl', ['$scope', '$location', '$rootScope', function($scope, $location, $rootScope) {
                            
   $scope.isActive = function (viewLocation) {
       var active = (viewLocation === $location.path());
       return active;
   };
-                           
+
+  $rootScope.$on("documentClicked", closeMenu);
+
+  function closeMenu() {
+      var menu = document.querySelector('#slide-menu-right');
+      menu.classList.remove('is-active');
+    
+      var mask = document.querySelector('#mask');
+      mask.classList.remove('is-active');
+      
+      document.body.classList.remove('has-active-menu');
+   }
+                    
+  $scope.showMenu = function(e) {
+      e.stopPropagation();
+    
+      var menu = document.querySelector('#slide-menu-right');
+      menu.classList.add('is-active');
+      
+      var mask = document.querySelector('#mask');
+      mask.classList.add('is-active');
+      
+      document.body.classList.add('has-active-menu');
+  };
+
 }]);
